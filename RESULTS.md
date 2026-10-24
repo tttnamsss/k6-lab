@@ -8,6 +8,8 @@
     - p(95) = 401.19
     - rate stay below 5 because it have sleep(1) like after VU sent req they have to with 1 s,so the total rate for 5 VUs will not more than 5.
 - Step 0.6, exit code of the normal run and of the run with P95=300: 
+    - the normal run: all requests are completed, and thresholds are checked, and no interrupted no error. exit code is 0
+    - run with P95=300: all requests are completed, but have the error on http_req_duratio threshold because p(95) is > 300. exit code is 99
 - Step 0.7, rules that passed, p(95), p(99), exit code after your change: 
 - Step 0.8, what was wrong, and how the checks showed it: 
   
