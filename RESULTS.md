@@ -31,18 +31,35 @@
 ## Part B 
 1. Fill in the results table for Steps A1 to A5. 
 
-2. In Step 0.2, why was the request rate below 5 requests per second with 5 virtual users? 
+2. In Step 0.2, why was the request rate below 5 requests per second with 5 virtual users? </br>
+<b><u>Answer</u></b> because in file journey.js include sleep(), after send res they have to rest. so the total will nor over than 5.
 
-3. Did the response time grow from the average-load test to the stress test? Explain your answer with the operational envelope. 
+3. Did the response time grow from the average-load test to the stress test? Explain your answer with the operational envelope. </br>
+<b><u>Answer</u></b> No. The response time is decrease by compared from result, for the server can handle this load without decreasr performance.
 
-4. In the spike test, how long did the response time take to return to normal after the spike? 
+4. In the spike test, how long did the response time take to return to normal after the spike? </br>
+<b><u>Answer</u></b> it return to normal within 10s
 
-5. In the soak test, did the response time or the error rate get worse over time? Name one kind of defect that a soak test of several hours could reveal. 
+5. In the soak test, did the response time or the error rate get worse over time? Name one kind of defect that a soak test of several hours could reveal. </br>
+<b><u>Answer</u></b> No, the error rate is 0%. The kind of defect could be memory leak.
 
-6. Why do the thresholds in this lab use p(95) rather than the average?
+6. Why do the thresholds in this lab use p(95) rather than the average?</br>
+<b><u>Answer</u></b> Because the average can hide the slowest, but p(95) will ensures that 95% of all users experience a response time better than the threshold.
 
-7. Your results come from a shared public site reached over the internet. Give two reasons why the same tests against a system in a lab could give different numbers. 
+7. Your results come from a shared public site reached over the internet. Give two reasons why the same tests against a system in a lab could give different numbers. </br>
+<b><u>Answer</u></b> 1. Network, 2. Share background traffic
 
-8. Why must you never run a stress, spike or breakpoint test with hundreds of users against a site that you do not own? 
+8. Why must you never run a stress, spike or breakpoint test with hundreds of users against a site that you do not own? </br>
+<b><u>Answer</u></b> Because it will attack the system, and disrupts service for other users.
 
-9. Write one vague performance requirement for an app you use every day. Rewrite it as a testable requirement, and show the K6 thresholds that check it. 
+9. Write one vague performance requirement for an app you use every day. Rewrite it as a testable requirement, and show the K6 thresholds that check it. </br>
+<b><u>Answer</u></b>
+    -  vague = The chat app should load messages fast.
+    - testable requirement = with 40 users sending message in the same time for 30s, 95% of requests must complete within 500 ms, and less than 1% of requests may fail.
+    - K6 threshold = 
+    ```
+    thresholds: {
+        http_req_failed: ['rate<0.01'],
+        http_req_duration: ['p(95)<500'],
+    }
+    ```
