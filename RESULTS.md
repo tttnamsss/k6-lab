@@ -26,7 +26,7 @@
 | A2   | Average load | 3     | 1.322387/s | 368.94ms | 432.72ms | 0.00% | 100.00% |
 | A3   | Stress       | 5     | 2.162301/s | 366.81ms | 399.71ms | 0.00% | 100.00% |
 | A4   | Spike        | 5     | 1.041599/s | 378.92ms | 451.92ms | 0.00% | 100.00% |
-| A5   | Soak         | 2     |       |       |     |        |        | 
+| A5   | Soak         | 2     | 0.981108/s | 368.17ms | 1.22s | 0.00% | 100.00% |
   
 ## Part B 
 1. Fill in the results table for Steps A1 to A5. 
