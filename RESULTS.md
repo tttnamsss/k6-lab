@@ -16,6 +16,8 @@
     - p(99) = 742.96ms
     - exit code after change (edit P95=400) = 99
 - Step 0.8, what was wrong, and how the checks showed it: 
+    - what wrong = resquest name and name in stringify are not match.
+    - how the checks showed = after run test, it will show the mark that tell which test are pass or fail
   
 ## Part A results 
 | Step | Test type    | Users | Req/s | p(95) | Max | Failed | Checks | 
